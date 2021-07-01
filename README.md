@@ -41,4 +41,4 @@ My second optimization was to store the _dictionary_ in a Trie data structure in
 
 ## Notes
 - Currently, implementation is case sensitive, so words found on the _board_ must match an element in the _dictionary_ exactly (up to capitalization). 
-- Currently, if the same word can be made in multiple ways on the _board_ (i.e. 'foot' on the sample board shown above), that word is printed multiple times in the output. If this behavior is not desired, we could amend the existing code by either converting the output list to a set (the code for which is commented at the end of the `main` function in [`driver.py`](./driver.py) or by removing found words as valid words from the Trie as we find them. 
+- Currently, if the same word can be made in multiple ways on the _board_ (i.e. 'foot' on the sample board shown above), that word is printed multiple times in the output. If this behavior is not desired, we could amend the existing code by either converting the output list to a set (the code for which is commented at the end of the `main` function in [`driver.py`](./driver.py)) or by removing found words as valid words from the Trie as we find them. 
