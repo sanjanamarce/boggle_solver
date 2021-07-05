@@ -22,9 +22,9 @@ To run using defaults, run `python driver.py`.
     - <img width="150" alt="Screen Shot 2021-07-01 at 10 09 46 AM" src="https://user-images.githubusercontent.com/46915691/124138311-85b0da00-da54-11eb-96bd-f6bf56b74d31.png">
     - If no `<board_string>` is specified, the above board is used as the default. 
 
-- **`<path_to_dictionary_file>`**: the `vocab` is specified as a `txt` file where each valid word is on a new line. The file [`dictionary.txt`](./dictionary.txt) is an example of a valid such file.
+- **`<path_to_dictionary_file>`**: the `vocab` is specified as a `txt` file where each valid word is on a new line. The file [`dictionary.txt`](https://github.com/sanjanamarce/boggle_solver/blob/main/dictionary.txt) is an example of a valid such file.
  
-    - If no `<path_to_dictionary_file>` is specified, this open source dictionary of 194,000 English words downloaded from [gwicks.net](http://www.gwicks.net/dictionaries.htm) (stored in the file [`dictionary.txt`](./dictionary.txt)) is used as the default. 
+    - If no `<path_to_dictionary_file>` is specified, this open source dictionary of 194,000 English words downloaded from [gwicks.net](http://www.gwicks.net/dictionaries.htm) (stored in the file [`dictionary.txt`](https://github.com/sanjanamarce/boggle_solver/blob/main/dictionary.txt)) is used as the default. 
 
 ## Approach & Optimizations
 In my initial implementation, I stored the _dictionary_ as a set and ran a basic depth first search (DFS) of the _board_ initiated at each of the 16 cells of the _board_ to generate all possible string combinations, and then returned those strings that existed in the _dictionary_ and met the requirements for minimum length. For an M x N board, this approach requires exponential time complexity O(MN * 8^MN), as for each of the MN cells from which we initiate the search, there are 8^MN possible strings starting with that cell. Looking up each of these words for membership in the dictionary is O(1) on average (set lookup) but O(dict_size) in the worst case. 
@@ -41,4 +41,4 @@ My second optimization was to store the _dictionary_ in a Trie data structure in
 
 ## Notes
 - Currently, implementation is case sensitive, so words found on the _board_ must match an element in the _dictionary_ exactly (up to capitalization). 
-- Currently, if the same word can be made in multiple ways on the _board_ (i.e. 'foot' on the sample board shown above), that word is printed multiple times in the output. If this behavior is not desired, we could amend the existing code by either converting the output list to a set (the code for which is commented at the end of the `main` function in [`driver.py`](./driver.py)) or by removing found words as valid words from the Trie as we find them. 
+- Currently, if the same word can be made in multiple ways on the _board_ (i.e. 'foot' on the sample board shown above), that word is printed multiple times in the output. If this behavior is not desired, we could amend the existing code by either converting the output list to a set (the code for which is commented at the end of the `main` function in [`driver.py`](https://github.com/sanjanamarce/boggle_solver/blob/main/driver.py)) or by removing found words as valid words from the Trie as we find them. 
